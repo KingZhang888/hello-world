@@ -9,7 +9,7 @@
         finished-text="没有更多了"
         @load="onLoad"
       >
-        <van-cell v-for="item in list" :key="item.art_id.toString()" :title="item.title">
+        <van-cell v-for="item in list" :key="item.art_id.toString()" :title="item.title" @click="$router.push('/article')">
           <template #label>
             <van-grid :border="false" :column-num="item.cover.images.length">
               <van-grid-item v-for="(Img,index) in item.cover.images" :key="index">
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { reqGetArticles, reqDisLikeArticle } from '@/api/acticles'
+import { reqGetArticles, reqDisLikeArticle, reqReportsArticle } from '@/api/acticles'
 export default {
   name: 'ArticleList',
   props: {
@@ -93,6 +93,12 @@ export default {
       this.list = this.list.filter(item => item.art_id.toString() !== this.disLikeId)
       await reqDisLikeArticle(this.disLikeId)
       this.$emit('closePoP')
+    },
+    async reportList(value) {
+      // console.log('文章列表收到了举报事件')
+      this.list = this.list.filter(item => item.art_id.toString() !== this.disLikeId)
+      await reqReportsArticle(this.disLikeId, value)
+      // console.log(res)
     }
   }
 }

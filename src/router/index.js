@@ -3,6 +3,9 @@ import VueRouter from 'vue-router'
 // 导入登录组件
 import Login from '@/views/Login'
 import Layout from '@/views/Layout'
+import Search from '@/views/Search'
+import SearchResult from '@/views/SearchResult'
+import Article from '@/views/Article'
 // 导入二级路由
 import Home from '@/views/Layout/components/home'
 import Question from '@/views/Layout/components/question'
@@ -19,7 +22,10 @@ const routes = [
       { path: '/question', component: Question },
       { path: '/video', component: Video },
       { path: '/user', component: User }
-    ] }
+    ] },
+  { path: '/search', component: Search },
+  { path: '/searchResult', component: SearchResult },
+  { path: '/article', component: Article }
 ]
 
 const router = new VueRouter({

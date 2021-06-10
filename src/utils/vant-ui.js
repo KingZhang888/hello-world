@@ -18,7 +18,12 @@ import {
   Image,
   PullRefresh,
   Lazyload,
-  Popup
+  Popup,
+  ActionSheet,
+  Search,
+  Dialog,
+  Loading,
+  Divider
 } from 'vant'
 
 // 注册全局组件
@@ -40,3 +45,10 @@ Vue.use(Button)
   .use(PullRefresh)
   .use(Lazyload)
   .use(Popup)
+  .use(ActionSheet)
+  .use(Search)
+  .use(Cell)
+  .use(CellGroup)
+  .use(Dialog)
+  .use(Loading)
+  .use(Divider)

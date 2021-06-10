@@ -9,7 +9,7 @@
     <!-- 状态二 反馈-->
     <van-cell-group v-else>
       <van-cell icon="arrow-left" @click="isReport=false">返回</van-cell>
-      <van-cell v-for="item in reportList" :key="item.value">{{ item.label }}</van-cell>
+      <van-cell v-for="item in reportList" :key="item.value" @click="report(item.value)">{{ item.label }}</van-cell>
     </van-cell-group>
   </div>
 </template>
@@ -27,6 +27,11 @@ export default {
   methods: {
     dislike() {
       this.$emit('dislike')
+    },
+    report(value) {
+      // this.$emit('reportArt')
+      // 使用事件中心
+      this.bus.$emit('reportArt', value)
     }
   }
 }

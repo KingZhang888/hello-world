@@ -18,7 +18,8 @@ Vue.filter('relativeTime', relativeTime)
 // Vue.filter('fmItem', (val) => {
 //   return dayjs(val).format('YYYY-MM-DD')
 // })
-
+// 创建一个事件中心
+Vue.prototype.bus = new Vue()
 Vue.config.productionTip = false
 Vue.prototype.$http = http
 
